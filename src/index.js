@@ -2,14 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-// import { Provider } from "react-redux";
-
+import { StateProvider } from "./components/stateProvider";
+import { initialState, reducer } from "./reducer/reducer";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
+    <StateProvider initialState={initialState} reducer={reducer}>
+      {/* StateProvider pour que tous les composants ai acces au data layer (comme le provider redux) */}
       <App />
-    {/* </Provider> */}
+    </StateProvider>
   </React.StrictMode>,
 
   document.getElementById("root")
