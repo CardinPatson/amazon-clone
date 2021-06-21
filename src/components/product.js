@@ -22,7 +22,7 @@ function Product({ id, title, image, price, rating }) {
         <div className="product_rating">
           {Array(rating)
             .fill()
-            .map((_, i) => (
+            .map((i) => (
               <p>⭐</p>
             ))}
           {/* Array(size).fill() cree un array vide de taille 5 */}

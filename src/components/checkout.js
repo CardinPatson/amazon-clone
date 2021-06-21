@@ -12,6 +12,8 @@ function Checkout(props) {
         />
         <div>
           <h2 className="checkout_title">Your shopping basket</h2>
+          {/* bASKET ITEM */}
+          
         </div>
       </div>
       <div className="checkout_right">

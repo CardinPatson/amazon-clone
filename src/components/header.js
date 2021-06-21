@@ -7,7 +7,7 @@ import { useStateValue } from "./stateProvider";
 // import { Redirect } from "react-router";
 
 function Header(props) {
-  const [{ basket }, dispatch] = useStateValue;
+  const [{ basket }, dispatch] = useStateValue();
 
   return (
     <Container>
