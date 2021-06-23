@@ -1,6 +1,11 @@
-import { ADD_TO_BASKET, REMOVE_FROM_BASKET } from "../actions/actionTypes";
+import {
+  ADD_TO_BASKET,
+  REMOVE_FROM_BASKET,
+  SET_USER,
+} from "../actions/actionTypes";
 export const initialState = {
   basket: [],
+  user: null,
 };
 
 //CLACULE LE TOTAL DES BASKET
@@ -31,6 +36,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         basket: newBasket,
+      };
+    case SET_USER:
+      return {
+        ...state,
+        user: action.user,
       };
 
     default:

@@ -5,10 +5,17 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from "react-router-dom";
 import { useStateValue } from "./stateProvider";
 // import { Redirect } from "react-router";
-
+import { auth } from "../firebase";
 function Header(props) {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
+  //USESTATEVALUE NOUS PERMET DE RECUPERER TOUS LES ETATS QUE LON A DISPATCHER ET LORSQUILS SONT MIS A JOUR
+
+  const handleAuthentification = () => {
+    if (user) {
+      auth.signOut();
+    }
+  };
   return (
     <Container>
       <Link to="/">
@@ -23,10 +30,12 @@ function Header(props) {
         {/* LOGO */}
       </div>
       <div className="header_nav">
-        <Link to="/login">
-          <div className="header_option">
+        <Link to={!user && "/login"}>
+          <div onClick={handleAuthentification} className="header_option">
             <span className="header_optionOne">Hello Guest</span>
-            <span className="header_optionTwo">Sign In</span>
+            <span className="header_optionTwo">
+              {user ? "Sign Out" : "Sign In"}
+            </span>
           </div>
         </Link>
         <div className="header_option">
@@ -40,9 +49,7 @@ function Header(props) {
         <Link to="/checkout">
           <div className="header_optionBasket">
             <ShoppingBasketIcon />
-            <div className="header_optionTwo header_basketCount">
-              {basket?.length}
-            </div>
+            <div className="header_basketCount">{basket?.length}</div>
           </div>
         </Link>
       </div>

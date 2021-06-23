@@ -1,23 +1,48 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { auth } from "../firebase";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Login(props) {
+  const history = useHistory();
+  //NOUS PERMET DE CHANGER LURL
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState(""); //Comme le status et sa son
+  //USESTATE RENVOIE UNE PAIRE DE VALEUR : LETAT ACTUEL ET UNE FONCTION POUR LA MODIFIER
+
+  //USESTATE EST UNE HOOK DE REACT QUI PERMET DAJOUTER LETAT LOCALE DE REACT A DES FONCTIONS COMPOSANTS
+
+  //ON PEUT UTILISER LES HOOKS A LINTERIEUR DES FONCTIONS COMPOSANTS SANS TOUTEFOIS LES CONVERTIR EN CLASSE
+
+  //DANS UNE FONCTION ON PEUT DIRECTEMENT UTILILSER LETAT (email , password) ET LA FONCTION (setEmail) MAIS DANS UNE CLASSE CEST (this.state.email)
+  //AVANT QUAND ON AVAIT BESOIN DE LETAT LOCAL ON ETAIT OBLIGE DE CONVERTIR LA FONCTION EN CLASSE PUISQUE DANS LES FONCTIONS COMPOSANT IL NYA PAS DE THIS
+
+  //EN SAVOIR PLUS https://fr.reactjs.org/docs/hooks-state.html
 
   const signIn = (e) => {
     e.preventDefault();
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        if (auth) {
+          history.push("/");
+        }
+      })
+      .catch((error) => alert(error.message));
   };
   const register = (e) => {
     e.preventDefault();
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
+        //  ICI CE QUE TU VEUX FAIRE LORS DU REGISTER
         console.log(
           auth
         ); /**si la creation de lemail et du mot de passe a reussi  */
+        if (auth) {
+          history.push("/"); //REDIRECT DANS LA PAGE /
+        }
       })
       .catch((error) => alert(error.message));
   };
@@ -42,8 +67,8 @@ function Login(props) {
           <h5>Password</h5>
           <input
             type="password"
-            value={email}
-            onChnage={(e) => setPassword(e.target.value)}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <button type="submit" onClick={signIn}>
             Sign-in
