@@ -6,16 +6,16 @@ Pour visualiser le clone , cliquez [ici](https://clone-3467b.web.app)
 
 **Note: Le code est structuré dans le dossier src de facon a scindé les composants react de redux**
 
-### components 
+### Components 
 
 Dossiers contenant tous les composants React. La librairie [style-components](https://www.npmjs.com/package/style-components) a été utilisé pour appliquer le style au composants
 
-### store , reducer , action
+### Store , Reducer , Action
 
 Ces dossiers contiennent la partie redux qui s'occupera de la gestion de l'état de notre application (La transmission de l'état entre les différents composants de l'application...). 
 Pour de plus ample information sur la façon d'utiliser react-redux , suivez ce [lien](https://react-redux.js.org/introduction/getting-started)
 
-###firebase.js 
+### Firebase.js 
 
 ce fichier établie la connexion avec notre base de donnée stockée sur [firebase](https://firebase.google.com) elle va nous permettre entre autre le stockage : 
 1. Des paramètres d'authentification de l'utilisateur 
