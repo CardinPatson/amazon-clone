@@ -22,5 +22,6 @@ ce fichier établie la connexion avec notre base de donnée stockée sur [fireba
 2. Des postes de l'utilisateur
 
 Pour de plus ample information sur comment ajouter firebase à votre projet, suivez ce [lien](https://firebase.google.com/docs/web/setup)
+
 **Note: Toutes les fonctionnalités de l'application web [amazon](https://www.amazon.fr/) n'ont pas été développé**
 
