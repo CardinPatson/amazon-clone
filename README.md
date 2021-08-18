@@ -1,6 +1,6 @@
 # Clone de l'application web amazon 
 
-Pour visualiser le clone , cliquez [ici](https://clone-3467b.web.app)
+Cliquez [ici](https://clone-3467b.web.app) pour visualiser le clone.
 
 ## Balayage de code 
 
