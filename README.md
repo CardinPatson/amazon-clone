@@ -4,7 +4,7 @@ Pour visualiser le clone , cliquez [ici](https://clone-3467b.web.app)
 
 ## Balayage de code 
 
-**Note: Le code est structuré dans le dossier src de facon a scindé les composants react de redux**
+**Note: Le code est structuré dans le dossier src de facon à visualiser les composants react de redux**
 
 ### Components 
 
